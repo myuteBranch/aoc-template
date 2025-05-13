@@ -12,6 +12,7 @@ fn main() {
     warn!("test");
     info!("test");
     debug!("test");
-    let color = solve("");
-    info!("{:?}", color);
+    let input = include_str!("../../part1.txt");
+    let out = solve(input);
+    info!("{:?}", out);
 }

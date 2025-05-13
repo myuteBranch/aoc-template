@@ -2,9 +2,9 @@ use nom::{
     IResult, Parser, bytes::complete::tag, bytes::complete::take_while_m_n, combinator::map_res,
 };
 use tracing::info;
-pub fn solve(path: &str) -> Result<i32, String> {
-    let color = parse_input(path).unwrap();
-    info!("{:?}", color);
+pub fn solve(input: &str) -> Result<i32, String> {
+    let res = parse_input(input).unwrap();
+    info!("{:?}", res);
     Ok(0)
 }
 
@@ -37,3 +37,17 @@ fn hex_color(input: &str) -> IResult<&str, Color> {
 
     Ok((input, Color { red, green, blue }))
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+    
+    #[test]
+    fn it_works() {
+        let input = r"input_here";
+        let out = solve(input);
+        assert_eq!(Ok(0), out)
+    }
+
+}
+
